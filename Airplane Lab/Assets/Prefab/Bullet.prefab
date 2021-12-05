@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 0}
-  speed: 5
   bullet: {fileID: 0}
+  speed: 5
 --- !u!61 &252119505893980729
 BoxCollider2D:
   m_ObjectHideFlags: 0

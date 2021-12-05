@@ -7,12 +7,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] Rigidbody2D rigid;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject bullet;
+    public GameObject display;
     public HealthBar enemyHealthbar;
     public int hp = 10;
     public int currentHp;
     [SerializeField] float moveSpeed = 2.0f;
     [SerializeField] float fireRate = 1f;
     private float nextFire;
+    private int direction = 1; //int direction where 0 is stay, 1 up, -1 down
+    private int top = 3;
+    private int bottom = -3;    
     
 
     // Start is called before the first frame update
@@ -21,6 +25,8 @@ public class Enemy : MonoBehaviour
         currentHp = hp;
         enemyHealthbar.setMaxHealth(hp);
         
+        if (display == null)
+            display = GameObject.FindGameObjectWithTag("Display");
         if (enemy == null) 
             enemy = GameObject.FindGameObjectWithTag("Enemy");
         if (rigid == null)
@@ -39,14 +45,22 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame; best for user input
     void Update()
     {
+        if (transform.position.y >= top)
+            direction = -1;
+        if (transform.position.y <= bottom)
+            direction = 1;
+
+        transform.Translate(0, moveSpeed * direction * Time.deltaTime, 0);
+        
         Fire();
     }
 
     //FixedUpdate is called potentially multiple times per frame; best for physics and movement
     private void FixedUpdate()
     {
-        rigid.velocity = new Vector2(-moveSpeed, rigid.velocity.y); //horizontal movement  
+     
     }
+
 
     void Fire()
     {
@@ -66,12 +80,13 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet") {
             takeDmg(2);
             if(currentHp <= 0) {
+                display.GetComponent<Score>().AddPoints();
                 Die();
             }
         }
     }
 
-    void Die() 
+    public void Die() 
     {
         Destroy(enemy);
     }

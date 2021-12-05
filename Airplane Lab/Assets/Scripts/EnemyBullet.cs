@@ -8,6 +8,7 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] float speed = 5.0f;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,6 @@ public class EnemyBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
-            Destroy(bullet);
+            Destroy(bullet);;
     }
 }

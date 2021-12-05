@@ -7,38 +7,44 @@ using UnityEngine.SceneManagement;
 public class Score : MonoBehaviour
 {
     [SerializeField] int score = 0;
-    const int DEFAULT_POINTS = 1;
-    private int SCORE_THRESHOLD = 1;
+    [SerializeField] int level;
+    private int DEFAULT_POINTS = 1;
+    private int maxScore;
     [SerializeField] Text scoreTxt;
     [SerializeField] Text sceneTxt;
-    [SerializeField] int level;
+    private int maxLevel = 3;
+
 
     // Start is called before the first frame update
     void Start()
     {
         level = SceneManager.GetActiveScene().buildIndex;
+        maxScore = level;
+
         DisplayScore();
-        
+        DisplayLevel();
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     public void AddPoints(int points)
     {
         score += points;
-        Debug.Log("score " + score);
         DisplayScore();
 
-        if (score >= SCORE_THRESHOLD)
+        Debug.Log("Score: " + score);
+        Debug.Log("Point: " + points);
+        Debug.Log("threshold: " + maxScore);
+        if (score >= maxScore) {
             AdvanceLevel();
-            SCORE_THRESHOLD += 1;
+        }
 
     }
-
 
     public void AddPoints()
     {
@@ -50,8 +56,15 @@ public class Score : MonoBehaviour
         scoreTxt.text = "Score: " + score;
     }
 
-    public void AdvanceLevel()
+    public void DisplayLevel()
     {
-        SceneManager.LoadScene(level + 1);
+        sceneTxt.text = "Level: " + level;
     }
+
+    public void AdvanceLevel() 
+    {   
+        if(level < maxLevel)
+            SceneManager.LoadScene(level + 1);   
+        }
+
 }
