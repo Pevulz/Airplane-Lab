@@ -37,9 +37,6 @@ public class Score : MonoBehaviour
         score += points;
         DisplayScore();
 
-        Debug.Log("Score: " + score);
-        Debug.Log("Point: " + points);
-        Debug.Log("threshold: " + maxScore);
         if (score >= maxScore) {
             AdvanceLevel();
         }
