@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 0}
-  speed: 5
-  isFacingRight: 1
   enemy: {fileID: 0}
+  bullet: {fileID: 0}
+  hp: 10
+  moveSpeed: 2
+  fireRate: 2
+  nextFire: 0
