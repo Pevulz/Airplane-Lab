@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioSource crash;
     [SerializeField] Rigidbody2D rigid;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject bullet;
@@ -88,6 +89,7 @@ public class Enemy : MonoBehaviour
 
     public void Die() 
     {
+        AudioSource.PlayClipAtPoint(crash.clip, transform.position);
         Destroy(enemy);
     }
 }
