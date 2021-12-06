@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] int score = 0;
+    [SerializeField] int score = 0; //for each level
+    private int totalScore = 0;
     [SerializeField] int level;
     private int DEFAULT_POINTS = 1;
     private int maxScore;
     [SerializeField] Text scoreTxt;
+    [SerializeField] Text totalScoreTxt;
     [SerializeField] Text sceneTxt;
     private int maxLevel = 3;
 
@@ -19,23 +21,28 @@ public class Score : MonoBehaviour
     void Start()
     {
         level = SceneManager.GetActiveScene().buildIndex;
-        maxScore = level;
+        maxScore = level; //leve
+        totalScore = PlayerPrefs.GetInt("PlayerScore");
 
-        DisplayScore();
-        DisplayLevel();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        DisplayScore();
+        DisplayLevel();
+        DisplayTotalScore();
+        if(score == 3)
+            SceneManager.LoadScene("Menu");
     
     }
 
     public void AddPoints(int points)
     {
         score += points;
-        DisplayScore();
+        totalScore += points;
+        PlayerPrefs.SetInt("PlayerScore", totalScore);
 
         if (score >= maxScore) {
             AdvanceLevel();
@@ -46,6 +53,11 @@ public class Score : MonoBehaviour
     public void AddPoints()
     {
         AddPoints(DEFAULT_POINTS);
+    }
+
+    public void DisplayTotalScore()
+    {
+        totalScoreTxt.text = "Total Score: " + PlayerPrefs.GetInt("PlayerScore");
     }
 
     public void DisplayScore()
@@ -62,6 +74,6 @@ public class Score : MonoBehaviour
     {   
         if(level < maxLevel)
             SceneManager.LoadScene(level + 1);   
-        }
+    }
 
 }

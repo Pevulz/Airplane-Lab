@@ -144,10 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e8f0fd69b324f4dab6ea6d330dd4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 0}
-  enemy: {fileID: 0}
-  bullet: {fileID: 0}
+  crash: {fileID: 1647173268350594219, guid: d02c163606b6c0e4fa695a8ab562c951, type: 3}
+  rigid: {fileID: 3508055304656701468}
+  enemy: {fileID: 3508055304656701470}
+  bullet: {fileID: 8688293484607132329, guid: ed071fb48a7f4b247bd33c5603366089, type: 3}
+  display: {fileID: 0}
+  enemyHealthbar: {fileID: 4082797908691004844, guid: a0edaf261e3d0d34aaf09fa570c4d980, type: 3}
   hp: 10
+  currentHp: 0
   moveSpeed: 2
   fireRate: 2
-  nextFire: 0

@@ -77,14 +77,16 @@ public class Player : MonoBehaviour
     {
         //dies instantly if player touches enemies
         if (collision.gameObject.tag == "Enemy") {
+            PlayerPrefs.SetInt("PlayerScore", 0);
             Destroy(player);
             SceneManager.LoadScene("Level 1");
         }
 
         //dies when player is out of hp from bullets
         if (collision.gameObject.tag == "EnemyBullet")
-            takeDmg(3);
+            takeDmg(2);
             if(currentHp <= 0) {
+                PlayerPrefs.SetInt("PlayerScore", 0);
                 Destroy(player);
                 SceneManager.LoadScene("Level 1");
             }

@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     private int direction = 1; //int direction where 0 is stay, 1 up, -1 down
     private int top = 3;
     private int bottom = -3;    
-    
+    public GameObject explosion;
+    public Transform deathPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -81,14 +82,15 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet") {
             takeDmg(2);
             if(currentHp <= 0) {
-                display.GetComponent<Score>().AddPoints();
                 Die();
+                display.GetComponent<Score>().AddPoints();
             }
         }
     }
 
     public void Die() 
     {
+        Instantiate(explosion, deathPoint.position, deathPoint.rotation = Quaternion.identity);
         AudioSource.PlayClipAtPoint(crash.clip, transform.position);
         Destroy(enemy);
     }
