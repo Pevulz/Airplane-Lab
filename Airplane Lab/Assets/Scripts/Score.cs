@@ -40,10 +40,12 @@ public class Score : MonoBehaviour
 
     public void AddPoints(int points)
     {
+        //add points 
         score += points;
         totalScore += points;
         PlayerPrefs.SetInt("PlayerScore", totalScore);
 
+        //if score reach the maxscore, proceed to next level
         if (score >= maxScore) 
         {
             AdvanceLevel();

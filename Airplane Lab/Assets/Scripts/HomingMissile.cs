@@ -19,6 +19,7 @@ public class HomingMissile : MonoBehaviour
         if (rigid == null)
             rigid = GetComponent<Rigidbody2D>();
 
+        //shoots where player is at 
         target = GameObject.FindObjectOfType<Player>();
         moveDirection = (target.transform.position - transform.position).normalized * speed;
         rigid.velocity = new Vector2 (moveDirection.x, moveDirection.y);
@@ -27,7 +28,7 @@ public class HomingMissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

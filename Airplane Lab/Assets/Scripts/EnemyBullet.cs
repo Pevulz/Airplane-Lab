@@ -21,6 +21,7 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //goes leftward of the plane
         rigid.velocity = new Vector2(-speed, rigid.velocity.y); //horizontal movement
     }
 

@@ -14,6 +14,7 @@ public class BackgroundMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //keeps playing the music
         DontDestroyOnLoad(transform.gameObject);
     }
 }
