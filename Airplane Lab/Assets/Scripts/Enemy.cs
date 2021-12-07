@@ -90,12 +90,8 @@ public class Enemy : MonoBehaviour
 
     public void Die() 
     {
+        Destroy(enemy);
         Instantiate(explosion, deathPoint.position, deathPoint.rotation = Quaternion.identity);
         AudioSource.PlayClipAtPoint(crash.clip, transform.position);
-        Destroy(enemy);
-    }
-
-    public void setFireRate(int rate) {
-        fireRate = rate;
     }
 }

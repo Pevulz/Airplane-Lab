@@ -44,7 +44,8 @@ public class Score : MonoBehaviour
         totalScore += points;
         PlayerPrefs.SetInt("PlayerScore", totalScore);
 
-        if (score >= maxScore) {
+        if (score >= maxScore) 
+        {
             AdvanceLevel();
         }
 

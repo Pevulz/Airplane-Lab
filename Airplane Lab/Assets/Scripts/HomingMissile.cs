@@ -27,7 +27,7 @@ public class HomingMissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rigid.velocity = new Vector2(-speed, rigid.velocity.y); //horizontal movement
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
