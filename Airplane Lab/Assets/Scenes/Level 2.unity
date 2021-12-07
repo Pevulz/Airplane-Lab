@@ -1484,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 8688293484607132329, guid: ed071fb48a7f4b247bd33c5603366089, type: 3}
     - target: {fileID: 3508055304656701459, guid: 00f87e89ce9b0ef499b1005751df7e9d, type: 3}
       propertyPath: fireRate
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3508055304656701459, guid: 00f87e89ce9b0ef499b1005751df7e9d, type: 3}
       propertyPath: currentHp
@@ -2060,7 +2060,7 @@ PrefabInstance:
       objectReference: {fileID: 8688293484607132329, guid: ed071fb48a7f4b247bd33c5603366089, type: 3}
     - target: {fileID: 3508055304656701459, guid: 00f87e89ce9b0ef499b1005751df7e9d, type: 3}
       propertyPath: fireRate
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3508055304656701459, guid: 00f87e89ce9b0ef499b1005751df7e9d, type: 3}
       propertyPath: currentHp

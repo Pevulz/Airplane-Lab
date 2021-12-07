@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public int hp = 10;
     public int currentHp;
     [SerializeField] float moveSpeed = 2.0f;
-    [SerializeField] int fireRate = 1;
+    [SerializeField] float fireRate = 3000f;
     private float nextFire;
     private int direction = 1; //int direction where 0 is stay, 1 up, -1 down
     private int top = 3;
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 
         // Freeze the rotation
         rigid.freezeRotation = true;
-        fireRate = 1;
+
         nextFire = Time.time;
     }
 
