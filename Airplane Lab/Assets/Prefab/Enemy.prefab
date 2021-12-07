@@ -154,3 +154,5 @@ MonoBehaviour:
   currentHp: 0
   moveSpeed: 2
   fireRate: 2
+  explosion: {fileID: 8628961633549788494, guid: 99ffdd02b7e61524b8b9ef069c9a1319, type: 3}
+  deathPoint: {fileID: 3508055304656701458}

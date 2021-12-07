@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public int hp = 10;
     public int currentHp;
     [SerializeField] float moveSpeed = 2.0f;
-    [SerializeField] float fireRate = 1f;
+    [SerializeField] int fireRate = 1;
     private float nextFire;
     private int direction = 1; //int direction where 0 is stay, 1 up, -1 down
     private int top = 3;
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 
         // Freeze the rotation
         rigid.freezeRotation = true;
-        fireRate = 1f;
+        fireRate = 1;
         nextFire = Time.time;
     }
 
@@ -93,5 +93,9 @@ public class Enemy : MonoBehaviour
         Instantiate(explosion, deathPoint.position, deathPoint.rotation = Quaternion.identity);
         AudioSource.PlayClipAtPoint(crash.clip, transform.position);
         Destroy(enemy);
+    }
+
+    public void setFireRate(int rate) {
+        fireRate = rate;
     }
 }
