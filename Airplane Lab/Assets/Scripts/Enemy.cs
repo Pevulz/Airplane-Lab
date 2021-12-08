@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -81,7 +82,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet") {
             takeDmg(2);
-            if(currentHp <= 0) {
+            if(currentHp <= 0) 
+            {
                 Die();
                 display.GetComponent<Score>().AddPoints();
             }
